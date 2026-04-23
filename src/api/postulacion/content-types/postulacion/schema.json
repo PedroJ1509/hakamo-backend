@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "postulacions",
+  "info": {
+    "singularName": "postulacion",
+    "pluralName": "postulacions",
+    "displayName": "Postulacion"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "telefono": {
+      "type": "string"
+    },
+    "cv": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "cartaPresentacion": {
+      "type": "text"
+    },
+    "vacante": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::vacante.vacante",
+      "inversedBy": "postulacions"
+    },
+    "estado": {
+      "type": "enumeration",
+      "default": "recibida",
+      "enum": [
+        "recibida",
+        "en_revision",
+        "aceptada",
+        "rechazada"
+      ]
+    }
+  }
+}
