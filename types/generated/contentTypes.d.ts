@@ -491,16 +491,20 @@ export interface ApiDivisionDivision extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    mision: Schema.Attribute.Text;
     nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    orden: Schema.Attribute.Integer;
     posts: Schema.Attribute.Relation<'oneToMany', 'api::post.post'>;
     proyectos: Schema.Attribute.Relation<'oneToMany', 'api::proyecto.proyecto'>;
     publishedAt: Schema.Attribute.DateTime;
     servicios: Schema.Attribute.Relation<'oneToMany', 'api::servicio.servicio'>;
     slug: Schema.Attribute.UID<'nombre'>;
+    tagline: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     vacantes: Schema.Attribute.Relation<'oneToMany', 'api::vacante.vacante'>;
+    vision: Schema.Attribute.Text;
   };
 }
 
