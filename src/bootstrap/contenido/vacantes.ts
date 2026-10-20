@@ -1,0 +1,52 @@
+/** Contenido inicial de /empleos/vacantes y áreas del portal. Es el texto que el sitio tenía antes del CMS. */
+export const VACANTES_PAGINA_INICIAL = {
+  seo: {
+    metaTitulo: 'Vacantes — Hakamo',
+    metaDescripcion: 'Vacantes abiertas de Hakamo por categoría, ciudad y tipo de contrato.',
+  },
+  antetitulo: 'Empleos',
+  titulo: 'Vacantes abiertas',
+  tituloArea: 'Vacantes de {area}',
+  texto: 'Elige un área o busca por puesto y ciudad. Los puestos cerrados quedan aparte.',
+  textoArea: 'Puedes cambiar de área o buscar por ciudad.',
+  textos: {
+    buscador: 'Busca por puesto o ciudad',
+    borrar: 'Borrar',
+    etiquetaArea: 'Área',
+    todasLasAreas: 'Todas las áreas',
+    buscarArea: 'Buscar área',
+    sinAreas: 'Ninguna área coincide',
+    limpiarFiltros: 'Limpiar filtros',
+    mostrarFiltros: 'Filtrar por ciudad o contrato',
+    ocultarFiltros: 'Ocultar ciudad y contrato',
+    etiquetaCiudad: 'Ciudad',
+    todas: 'Todas',
+    etiquetaContrato: 'Contrato',
+    cualquierContrato: 'Cualquier contrato',
+    etiquetaModalidad: 'Modalidad',
+    cualquierModalidad: 'Cualquier modalidad',
+    puesto: 'puesto',
+    puestos: 'puestos',
+    abiertos: 'abiertos',
+    verCerradas: 'Ver cerradas',
+    ocultarCerradas: 'Ocultar cerradas',
+    sinResultadosTitulo: 'Ningún puesto coincide',
+    sinResultadosTexto: 'Prueba otra área o ciudad, o limpia los filtros para ver todo lo abierto.',
+    cerrada: 'Cerrada',
+    verPuesto: 'Ver puesto',
+    verDetalle: 'Ver detalle',
+    anterior: 'Anterior',
+    siguiente: 'Siguiente',
+    porPagina: 'Por página',
+    todasPorPagina: 'Todas',
+    de: 'de',
+  },
+};
+
+/** Áreas del portal (colección División). Colores: texto y fondo de la etiqueta. */
+export const AREAS_INICIALES = [
+  { nombre: 'Construcción', slug: 'construccion', colorPrimario: '#1747A8', colorSecundario: '#E6EEFC', orden: 1, activo: true },
+  { nombre: 'Energía', slug: 'energia', colorPrimario: '#7A3A00', colorSecundario: '#FFEFD9', orden: 2, activo: true },
+  { nombre: 'Salud e Higiene', slug: 'salud-higiene', colorPrimario: '#12623D', colorSecundario: '#DDF3E8', orden: 3, activo: true },
+  { nombre: 'Administración', slug: 'administracion', colorPrimario: '#6B21A8', colorSecundario: '#F3E8FF', orden: 4, activo: true },
+];

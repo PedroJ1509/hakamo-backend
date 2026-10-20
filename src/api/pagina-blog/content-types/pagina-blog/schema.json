@@ -1,0 +1,58 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_blogs",
+  "info": {
+    "singularName": "pagina-blog",
+    "pluralName": "paginas-blog",
+    "displayName": "Página · Blog",
+    "description": "Textos del blog (/blog y cada artículo). Los artículos se editan en Post"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seo"
+    },
+    "portada": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    },
+    "sinArticulos": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    },
+    "textoLeer": {
+      "type": "string"
+    },
+    "cierre": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    },
+    "textoVolver": {
+      "type": "string"
+    },
+    "textoTodos": {
+      "type": "string"
+    },
+    "botonArticulo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.boton"
+    },
+    "tituloRelacionados": {
+      "type": "string"
+    },
+    "recuadroArticulo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    }
+  }
+}

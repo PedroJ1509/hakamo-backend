@@ -1,0 +1,42 @@
+{
+  "collectionName": "components_proyectos_clips",
+  "info": {
+    "displayName": "Clip en campo",
+    "icon": "play",
+    "description": "Video a pantalla completa. Sin video, la imagen enlaza a otra página (Instagram, YouTube…)"
+  },
+  "options": {},
+  "attributes": {
+    "mostrar": {
+      "type": "boolean",
+      "default": true
+    },
+    "antetitulo": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "enlace": {
+      "type": "string"
+    },
+    "textoBoton": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,87 @@
+{
+  "collectionName": "components_solicitar_textos",
+  "info": {
+    "displayName": "Textos del formulario",
+    "icon": "pencil",
+    "description": "Etiquetas, ejemplos y botones del formulario por pasos"
+  },
+  "options": {},
+  "attributes": {
+    "etiquetaNombre": {
+      "type": "string"
+    },
+    "ejemploNombre": {
+      "type": "string"
+    },
+    "etiquetaEmpresa": {
+      "type": "string"
+    },
+    "ejemploEmpresa": {
+      "type": "string"
+    },
+    "etiquetaTelefono": {
+      "type": "string"
+    },
+    "ejemploTelefono": {
+      "type": "string"
+    },
+    "etiquetaCorreo": {
+      "type": "string"
+    },
+    "ejemploCorreo": {
+      "type": "string"
+    },
+    "antetituloPersonal": {
+      "type": "string"
+    },
+    "preguntaPersonal": {
+      "type": "string"
+    },
+    "antetituloModalidad": {
+      "type": "string"
+    },
+    "preguntaModalidad": {
+      "type": "string"
+    },
+    "etiquetaFecha": {
+      "type": "string"
+    },
+    "etiquetaDetalle": {
+      "type": "string"
+    },
+    "etiquetaMensaje": {
+      "type": "string"
+    },
+    "ejemploDetallePersonal": {
+      "type": "string"
+    },
+    "ejemploDetalleReunion": {
+      "type": "string"
+    },
+    "ejemploMensaje": {
+      "type": "string"
+    },
+    "antetituloResumen": {
+      "type": "string"
+    },
+    "tituloResumen": {
+      "type": "string"
+    },
+    "textoResumen": {
+      "type": "string"
+    },
+    "botonAtras": {
+      "type": "string"
+    },
+    "botonContinuar": {
+      "type": "string"
+    },
+    "botonEnviar": {
+      "type": "string"
+    },
+    "botonEnviando": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,117 @@
+{
+  "collectionName": "components_vacante_textos",
+  "info": {
+    "displayName": "Textos de la ficha",
+    "icon": "pencil",
+    "description": "Textos fijos de la ficha de cada vacante y su formulario. {correoReclutamiento} se cambia por el correo de Configuración del sitio"
+  },
+  "options": {},
+  "attributes": {
+    "cargando": {
+      "type": "string"
+    },
+    "noExisteTitulo": {
+      "type": "string"
+    },
+    "noExisteTexto": {
+      "type": "string"
+    },
+    "verVacantes": {
+      "type": "string"
+    },
+    "volver": {
+      "type": "string"
+    },
+    "sinArea": {
+      "type": "string"
+    },
+    "cierra": {
+      "type": "string"
+    },
+    "noDisponible": {
+      "type": "string"
+    },
+    "postularme": {
+      "type": "string"
+    },
+    "antetituloDescripcion": {
+      "type": "string"
+    },
+    "tituloDescripcion": {
+      "type": "string"
+    },
+    "antetituloRequisitos": {
+      "type": "string"
+    },
+    "tituloRequisitos": {
+      "type": "string"
+    },
+    "antetituloPostulacion": {
+      "type": "string"
+    },
+    "tituloCerrada": {
+      "type": "string"
+    },
+    "textoCerrada": {
+      "type": "text"
+    },
+    "tituloPostulacion": {
+      "type": "string"
+    },
+    "textoPostulacion": {
+      "type": "text"
+    },
+    "enviadaTitulo": {
+      "type": "string"
+    },
+    "enviadaTexto": {
+      "type": "string"
+    },
+    "verOtras": {
+      "type": "string"
+    },
+    "etiquetaNombre": {
+      "type": "string"
+    },
+    "ejemploNombre": {
+      "type": "string"
+    },
+    "etiquetaCorreo": {
+      "type": "string"
+    },
+    "ejemploCorreo": {
+      "type": "string"
+    },
+    "etiquetaTelefono": {
+      "type": "string"
+    },
+    "ejemploTelefono": {
+      "type": "string"
+    },
+    "etiquetaCv": {
+      "type": "string"
+    },
+    "sinCv": {
+      "type": "string"
+    },
+    "crealoAqui": {
+      "type": "string"
+    },
+    "etiquetaCarta": {
+      "type": "string"
+    },
+    "ejemploCarta": {
+      "type": "string"
+    },
+    "enviar": {
+      "type": "string"
+    },
+    "enviando": {
+      "type": "string"
+    },
+    "error": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

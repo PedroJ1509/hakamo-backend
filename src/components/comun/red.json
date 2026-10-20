@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_comun_reds",
+  "info": {
+    "displayName": "Red social",
+    "icon": "earth"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "texto": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

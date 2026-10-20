@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_comun_imagen_expandibles",
+  "info": {
+    "displayName": "Imagen que se expande",
+    "icon": "expand",
+    "description": "Imagen o video que crece al bajar, con título y texto encima"
+  },
+  "options": {},
+  "attributes": {
+    "titulo": {
+      "type": "string"
+    },
+    "texto": {
+      "type": "text"
+    },
+    "indicacion": {
+      "type": "string"
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "textoAlternativo": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

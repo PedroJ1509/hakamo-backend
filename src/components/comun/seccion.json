@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_comun_seccions",
+  "info": {
+    "displayName": "Sección",
+    "icon": "layout",
+    "description": "Bloque de una página: textos, lista de elementos, botón y fondo"
+  },
+  "options": {},
+  "attributes": {
+    "mostrar": {
+      "type": "boolean",
+      "default": true
+    },
+    "antetitulo": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "texto": {
+      "type": "text"
+    },
+    "elementos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.item"
+    },
+    "boton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.boton"
+    },
+    "botonSecundario": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.boton"
+    },
+    "fondo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.fondo"
+    }
+  },
+  "config": {}
+}

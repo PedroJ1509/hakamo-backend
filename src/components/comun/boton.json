@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_comun_botons",
+  "info": {
+    "displayName": "Botón o enlace",
+    "icon": "cursor"
+  },
+  "options": {},
+  "attributes": {
+    "texto": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

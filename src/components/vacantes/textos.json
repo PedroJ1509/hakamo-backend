@@ -1,0 +1,102 @@
+{
+  "collectionName": "components_vacantes_textos",
+  "info": {
+    "displayName": "Textos del listado",
+    "icon": "pencil",
+    "description": "Buscador, filtros, botones y paginación del listado de vacantes"
+  },
+  "options": {},
+  "attributes": {
+    "buscador": {
+      "type": "string"
+    },
+    "borrar": {
+      "type": "string"
+    },
+    "etiquetaArea": {
+      "type": "string"
+    },
+    "todasLasAreas": {
+      "type": "string"
+    },
+    "buscarArea": {
+      "type": "string"
+    },
+    "sinAreas": {
+      "type": "string"
+    },
+    "limpiarFiltros": {
+      "type": "string"
+    },
+    "mostrarFiltros": {
+      "type": "string"
+    },
+    "ocultarFiltros": {
+      "type": "string"
+    },
+    "etiquetaCiudad": {
+      "type": "string"
+    },
+    "todas": {
+      "type": "string"
+    },
+    "etiquetaContrato": {
+      "type": "string"
+    },
+    "cualquierContrato": {
+      "type": "string"
+    },
+    "etiquetaModalidad": {
+      "type": "string"
+    },
+    "cualquierModalidad": {
+      "type": "string"
+    },
+    "puesto": {
+      "type": "string"
+    },
+    "puestos": {
+      "type": "string"
+    },
+    "abiertos": {
+      "type": "string"
+    },
+    "verCerradas": {
+      "type": "string"
+    },
+    "ocultarCerradas": {
+      "type": "string"
+    },
+    "sinResultadosTitulo": {
+      "type": "string"
+    },
+    "sinResultadosTexto": {
+      "type": "string"
+    },
+    "cerrada": {
+      "type": "string"
+    },
+    "verPuesto": {
+      "type": "string"
+    },
+    "verDetalle": {
+      "type": "string"
+    },
+    "anterior": {
+      "type": "string"
+    },
+    "siguiente": {
+      "type": "string"
+    },
+    "porPagina": {
+      "type": "string"
+    },
+    "todasPorPagina": {
+      "type": "string"
+    },
+    "de": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

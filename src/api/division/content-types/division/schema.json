@@ -4,7 +4,8 @@
   "info": {
     "singularName": "division",
     "pluralName": "divisions",
-    "displayName": "Division"
+    "displayName": "Division",
+    "description": "Áreas del portal de empleo. colorPrimario es el color del texto de la etiqueta y colorSecundario su fondo"
   },
   "options": {
     "draftAndPublish": true

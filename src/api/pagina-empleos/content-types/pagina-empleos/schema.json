@@ -1,0 +1,67 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_empleos",
+  "info": {
+    "singularName": "pagina-empleos",
+    "pluralName": "paginas-empleos",
+    "displayName": "Página · Empleos",
+    "description": "Inicio del portal de empleo (/empleos). Las vacantes y áreas se editan en Vacante y División"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seo"
+    },
+    "portada": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.hero"
+    },
+    "textoBuscador": {
+      "type": "string"
+    },
+    "botonBuscar": {
+      "type": "string"
+    },
+    "beneficios": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.elemento"
+    },
+    "fondoBeneficios": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.fondo"
+    },
+    "areas": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    },
+    "sinVacantes": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    },
+    "masOportunidades": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    },
+    "como": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    },
+    "tuCv": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    }
+  }
+}

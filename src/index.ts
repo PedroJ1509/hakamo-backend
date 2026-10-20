@@ -1,20 +1,17 @@
-// import type { Core } from '@strapi/strapi';
+import type { Core } from '@strapi/strapi';
+import { abrirLecturaPublica } from './bootstrap/permisos';
+import { sembrarContenido } from './bootstrap/sembrar';
 
 export default {
-  /**
-   * An asynchronous register function that runs before
-   * your application is initialized.
-   *
-   * This gives you an opportunity to extend code.
-   */
   register(/* { strapi }: { strapi: Core.Strapi } */) {},
 
   /**
-   * An asynchronous bootstrap function that runs before
-   * your application gets started.
-   *
-   * This gives you an opportunity to set up your data model,
-   * run jobs, or perform some special logic.
+   * Al arrancar: el rol público puede leer las páginas y, si una página
+   * todavía no existe, se crea con el texto que el sitio tenía antes del CMS.
+   * Nunca sobrescribe lo que ya se editó en el panel.
    */
-  bootstrap(/* { strapi }: { strapi: Core.Strapi } */) {},
+  async bootstrap({ strapi }: { strapi: Core.Strapi }) {
+    await abrirLecturaPublica(strapi);
+    await sembrarContenido(strapi);
+  },
 };

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "postulacion",
     "pluralName": "postulacions",
-    "displayName": "Postulacion"
+    "displayName": "Postulacion",
+    "description": "Postulaciones y CV recibidos desde el sitio. «origen» dice si vino de una vacante, del constructor de CV o de un archivo subido"
   },
   "options": {
     "draftAndPublish": true
@@ -15,11 +16,17 @@
       "type": "string",
       "required": true
     },
+    "apellido": {
+      "type": "string"
+    },
     "email": {
       "type": "email",
       "required": true
     },
     "telefono": {
+      "type": "string"
+    },
+    "areaInteres": {
       "type": "string"
     },
     "cv": {
@@ -31,6 +38,15 @@
     },
     "cartaPresentacion": {
       "type": "text"
+    },
+    "origen": {
+      "type": "enumeration",
+      "enum": [
+        "vacante",
+        "cv_creado",
+        "cv_subido"
+      ],
+      "default": "vacante"
     },
     "vacante": {
       "type": "relation",

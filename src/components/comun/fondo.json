@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_comun_fondos",
+  "info": {
+    "displayName": "Fondo",
+    "icon": "picture",
+    "description": "Imagen o color de fondo de una sección, con capa encima para que el texto se lea"
+  },
+  "options": {},
+  "attributes": {
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "textoAlternativo": {
+      "type": "string"
+    },
+    "posicion": {
+      "type": "string",
+      "default": "50% 50%"
+    },
+    "color": {
+      "type": "string",
+      "regex": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$"
+    },
+    "colorCapa": {
+      "type": "string",
+      "regex": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$"
+    },
+    "opacidadCapa": {
+      "type": "integer",
+      "min": 0,
+      "max": 100
+    },
+    "tonoTexto": {
+      "type": "enumeration",
+      "enum": [
+        "oscuro",
+        "claro"
+      ]
+    }
+  },
+  "config": {}
+}

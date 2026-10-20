@@ -36,6 +36,12 @@
       "relation": "manyToOne",
       "target": "api::division.division",
       "inversedBy": "clientes"
+    },
+    "orden": {
+      "type": "integer"
+    },
+    "sector": {
+      "type": "string"
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "proyecto",
     "pluralName": "proyectos",
-    "displayName": "Proyecto"
+    "displayName": "Proyecto",
+    "description": "Obras de /proyectos. Se muestran las activas, por orden; la primera va en grande"
   },
   "options": {
     "draftAndPublish": true
@@ -19,17 +20,20 @@
       "type": "uid",
       "targetField": "titulo"
     },
+    "sector": {
+      "type": "string"
+    },
+    "rol": {
+      "type": "string"
+    },
     "descripcion": {
-      "type": "richtext"
+      "type": "text"
     },
     "imagenes": {
       "type": "media",
       "multiple": true,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "estado": {
@@ -42,6 +46,13 @@
     },
     "fecha": {
       "type": "date"
+    },
+    "orden": {
+      "type": "integer"
+    },
+    "activo": {
+      "type": "boolean",
+      "default": true
     },
     "division": {
       "type": "relation",

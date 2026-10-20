@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_sitio_pies",
+  "info": {
+    "displayName": "Pie de página",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "texto": {
+      "type": "text"
+    },
+    "botonEmpresas": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.boton"
+    },
+    "botonEmpleos": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.boton"
+    },
+    "textoPrivacidad": {
+      "type": "string"
+    },
+    "fondo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.fondo"
+    },
+    "fondoEmpleos": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.fondo"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_comun_elementos",
+  "info": {
+    "displayName": "Elemento de lista",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "texto": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

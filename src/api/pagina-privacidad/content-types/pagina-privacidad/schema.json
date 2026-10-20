@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_privacidads",
+  "info": {
+    "singularName": "pagina-privacidad",
+    "pluralName": "paginas-privacidad",
+    "displayName": "Página · Privacidad",
+    "description": "Aviso de privacidad (/privacidad). El texto admite {correo}"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seo"
+    },
+    "menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.boton"
+    },
+    "antetitulo": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "contenido": {
+      "type": "richtext"
+    },
+    "fondo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.fondo"
+    }
+  }
+}

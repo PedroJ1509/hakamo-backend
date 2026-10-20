@@ -1,0 +1,81 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_solicitars",
+  "info": {
+    "singularName": "pagina-solicitar",
+    "pluralName": "paginas-solicitar",
+    "displayName": "Página · Solicitar",
+    "description": "Formulario por pasos de /empresas/solicitar: personal, reunión o mensaje"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seo"
+    },
+    "portada": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.hero"
+    },
+    "opcionPersonal": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.item"
+    },
+    "opcionReunion": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.item"
+    },
+    "opcionContactar": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.item"
+    },
+    "pasosPersonal": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.item"
+    },
+    "pasosReunion": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.item"
+    },
+    "pasosContactar": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.item"
+    },
+    "tiposPersonal": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.item"
+    },
+    "modalidades": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.item"
+    },
+    "textos": {
+      "type": "component",
+      "repeatable": false,
+      "component": "solicitar.textos"
+    },
+    "fondoFormulario": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.fondo"
+    },
+    "listo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    }
+  }
+}

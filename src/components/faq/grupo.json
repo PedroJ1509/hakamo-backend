@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_faq_grupos",
+  "info": {
+    "displayName": "Grupo de preguntas",
+    "icon": "folder",
+    "description": "Pestaña de la página de preguntas frecuentes"
+  },
+  "options": {},
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true
+    },
+    "preguntas": {
+      "type": "component",
+      "repeatable": true,
+      "component": "faq.pregunta"
+    }
+  },
+  "config": {}
+}

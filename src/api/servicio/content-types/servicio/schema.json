@@ -4,7 +4,8 @@
   "info": {
     "singularName": "servicio",
     "pluralName": "servicios",
-    "displayName": "Servicio"
+    "displayName": "Servicio",
+    "description": "Servicios del catálogo de /servicios. Se muestran los activos, por orden"
   },
   "options": {
     "draftAndPublish": true
@@ -15,8 +16,27 @@
       "type": "string",
       "required": true
     },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo"
+    },
     "descripcion": {
-      "type": "richtext"
+      "type": "text"
+    },
+    "detalle": {
+      "type": "text"
+    },
+    "etiquetas": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.elemento"
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "icono": {
       "type": "string"

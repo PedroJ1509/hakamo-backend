@@ -453,9 +453,54 @@ export interface ApiClienteCliente extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    orden: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
+    sector: Schema.Attribute.String;
     sitioweb: Schema.Attribute.String;
     testimonio: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiConfiguracionSitioConfiguracionSitio
+  extends Struct.SingleTypeSchema {
+  collectionName: 'configuracion_sitios';
+  info: {
+    description: 'Logo, contacto, men\u00FAs, pie y redes. Se ve en todas las p\u00E1ginas';
+    displayName: 'Configuraci\u00F3n del sitio';
+    pluralName: 'configuraciones-sitio';
+    singularName: 'configuracion-sitio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    botonCabeceraEmpleos: Schema.Attribute.Component<'comun.boton', false>;
+    botonCabeceraEmpresas: Schema.Attribute.Component<'comun.boton', false>;
+    contacto: Schema.Attribute.Component<'sitio.contacto', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::configuracion-sitio.configuracion-sitio'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'>;
+    logoClaro: Schema.Attribute.Media<'images'>;
+    menuEmpleos: Schema.Attribute.Component<'comun.boton', true>;
+    menuEmpresas: Schema.Attribute.Component<'comun.boton', true>;
+    mostrarWhatsapp: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    nombre: Schema.Attribute.String;
+    nombreLegal: Schema.Attribute.String;
+    pie: Schema.Attribute.Component<'sitio.pie', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    redes: Schema.Attribute.Component<'comun.red', true>;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -465,6 +510,7 @@ export interface ApiClienteCliente extends Struct.CollectionTypeSchema {
 export interface ApiDivisionDivision extends Struct.CollectionTypeSchema {
   collectionName: 'divisions';
   info: {
+    description: '\u00C1reas del portal de empleo. colorPrimario es el color del texto de la etiqueta y colorSecundario su fondo';
     displayName: 'Division';
     pluralName: 'divisions';
     singularName: 'division';
@@ -576,6 +622,586 @@ export interface ApiMensajeMensaje extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiPaginaBlogPaginaBlog extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_blogs';
+  info: {
+    description: 'Textos del blog (/blog y cada art\u00EDculo). Los art\u00EDculos se editan en Post';
+    displayName: 'P\u00E1gina \u00B7 Blog';
+    pluralName: 'paginas-blog';
+    singularName: 'pagina-blog';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    botonArticulo: Schema.Attribute.Component<'comun.boton', false>;
+    cierre: Schema.Attribute.Component<'comun.seccion', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-blog.pagina-blog'
+    > &
+      Schema.Attribute.Private;
+    portada: Schema.Attribute.Component<'comun.seccion', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    recuadroArticulo: Schema.Attribute.Component<'comun.seccion', false>;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    sinArticulos: Schema.Attribute.Component<'comun.seccion', false>;
+    textoLeer: Schema.Attribute.String;
+    textoTodos: Schema.Attribute.String;
+    textoVolver: Schema.Attribute.String;
+    tituloRelacionados: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaContactoPaginaContacto
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_contactos';
+  info: {
+    description: 'Canales, formulario y ruta (/contacto). Tel\u00E9fonos, correo, direcci\u00F3n y punto del mapa se editan en Configuraci\u00F3n del sitio';
+    displayName: 'P\u00E1gina \u00B7 Contacto';
+    pluralName: 'paginas-contacto';
+    singularName: 'pagina-contacto';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    canales: Schema.Attribute.Component<'comun.seccion', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    formulario: Schema.Attribute.Component<'comun.seccion', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-contacto.pagina-contacto'
+    > &
+      Schema.Attribute.Private;
+    portada: Schema.Attribute.Component<'comun.hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    ruta: Schema.Attribute.Component<'comun.seccion', false>;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaCulturaPaginaCultura extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_culturas';
+  info: {
+    description: 'C\u00F3mo es trabajar con Hakamo (/empleo)';
+    displayName: 'P\u00E1gina \u00B7 Cultura';
+    pluralName: 'paginas-cultura';
+    singularName: 'pagina-cultura';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    actividades: Schema.Attribute.Component<'comun.seccion', false>;
+    areas: Schema.Attribute.Component<'comun.seccion', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    diferenciales: Schema.Attribute.Component<'comun.elemento', true>;
+    fondoDiferenciales: Schema.Attribute.Component<'comun.fondo', false>;
+    formacion: Schema.Attribute.Component<'comun.seccion', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-cultura.pagina-cultura'
+    > &
+      Schema.Attribute.Private;
+    portada: Schema.Attribute.Component<'comun.seccion', false>;
+    proceso: Schema.Attribute.Component<'comun.seccion', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    siguiente: Schema.Attribute.Component<'comun.seccion', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaEmpleosPaginaEmpleos extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_empleos';
+  info: {
+    description: 'Inicio del portal de empleo (/empleos). Las vacantes y \u00E1reas se editan en Vacante y Divisi\u00F3n';
+    displayName: 'P\u00E1gina \u00B7 Empleos';
+    pluralName: 'paginas-empleos';
+    singularName: 'pagina-empleos';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    areas: Schema.Attribute.Component<'comun.seccion', false>;
+    beneficios: Schema.Attribute.Component<'comun.elemento', true>;
+    botonBuscar: Schema.Attribute.String;
+    como: Schema.Attribute.Component<'comun.seccion', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fondoBeneficios: Schema.Attribute.Component<'comun.fondo', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-empleos.pagina-empleos'
+    > &
+      Schema.Attribute.Private;
+    masOportunidades: Schema.Attribute.Component<'comun.seccion', false>;
+    portada: Schema.Attribute.Component<'comun.hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    sinVacantes: Schema.Attribute.Component<'comun.seccion', false>;
+    textoBuscador: Schema.Attribute.String;
+    tuCv: Schema.Attribute.Component<'comun.seccion', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaEmpresasPaginaEmpresas
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_empresas';
+  info: {
+    description: 'Inicio para empresas (/empresas)';
+    displayName: 'P\u00E1gina \u00B7 Empresas';
+    pluralName: 'paginas-empresas';
+    singularName: 'pagina-empresas';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    accesos: Schema.Attribute.Component<'empresas.acceso', true>;
+    cinta: Schema.Attribute.Component<'comun.elemento', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    datos: Schema.Attribute.Component<'comun.dato', true>;
+    fondoAccesos: Schema.Attribute.Component<'comun.fondo', false>;
+    fondoCinta: Schema.Attribute.Component<'comun.fondo', false>;
+    fondoDatos: Schema.Attribute.Component<'comun.fondo', false>;
+    imagenExpandible: Schema.Attribute.Component<
+      'comun.imagen-expandible',
+      false
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-empresas.pagina-empresas'
+    > &
+      Schema.Attribute.Private;
+    portada: Schema.Attribute.Component<'comun.hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaEquipoPaginaEquipo extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_equipos';
+  info: {
+    description: 'Equipo (/equipo). En cada persona: etiqueta = iniciales, t\u00EDtulo = nombre, subt\u00EDtulo = cargo, texto = bio, imagen = foto';
+    displayName: 'P\u00E1gina \u00B7 Equipo';
+    pluralName: 'paginas-equipo';
+    singularName: 'pagina-equipo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cierre: Schema.Attribute.Component<'comun.seccion', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-equipo.pagina-equipo'
+    > &
+      Schema.Attribute.Private;
+    miembros: Schema.Attribute.Component<'comun.seccion', false>;
+    portada: Schema.Attribute.Component<'comun.seccion', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaFaqPaginaFaq extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_faqs';
+  info: {
+    description: 'Grupos de preguntas y bloque de ayuda (/faq)';
+    displayName: 'P\u00E1gina \u00B7 Preguntas frecuentes';
+    pluralName: 'paginas-faq';
+    singularName: 'pagina-faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ayuda: Schema.Attribute.Component<'comun.seccion', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fondoPreguntas: Schema.Attribute.Component<'comun.fondo', false>;
+    grupos: Schema.Attribute.Component<'faq.grupo', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-faq.pagina-faq'
+    > &
+      Schema.Attribute.Private;
+    portada: Schema.Attribute.Component<'comun.hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaNoEncontradaPaginaNoEncontrada
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_no_encontradas';
+  info: {
+    description: 'P\u00E1gina que se ve cuando una ruta no existe. Antet\u00EDtulo = n\u00FAmero grande; cada elemento es una salida (etiqueta, t\u00EDtulo, texto, subt\u00EDtulo = texto del enlace, enlace); bot\u00F3n = \u00ABO escr\u00EDbenos\u00BB; bot\u00F3n secundario = enlace de arriba';
+    displayName: 'P\u00E1gina \u00B7 No encontrada (404)';
+    pluralName: 'paginas-no-encontrada';
+    singularName: 'pagina-no-encontrada';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contenido: Schema.Attribute.Component<'comun.seccion', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-no-encontrada.pagina-no-encontrada'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaNosotrosPaginaNosotros
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_nosotros';
+  info: {
+    description: 'Historia, misi\u00F3n, valores, equipo y clientes (/nosotros)';
+    displayName: 'P\u00E1gina \u00B7 Nosotros';
+    pluralName: 'paginas-nosotros';
+    singularName: 'pagina-nosotros';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    actividades: Schema.Attribute.Component<'comun.seccion', false>;
+    clientes: Schema.Attribute.Component<'comun.seccion', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    equipo: Schema.Attribute.Component<'comun.seccion', false>;
+    formacion: Schema.Attribute.Component<'comun.seccion', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-nosotros.pagina-nosotros'
+    > &
+      Schema.Attribute.Private;
+    misionVision: Schema.Attribute.Component<'comun.seccion', false>;
+    pilares: Schema.Attribute.Component<'comun.seccion', false>;
+    portada: Schema.Attribute.Component<'comun.hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    trayectoria: Schema.Attribute.Component<'comun.seccion', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    valores: Schema.Attribute.Component<'comun.seccion', false>;
+  };
+}
+
+export interface ApiPaginaPrivacidadPaginaPrivacidad
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_privacidads';
+  info: {
+    description: 'Aviso de privacidad (/privacidad). El texto admite {correo}';
+    displayName: 'P\u00E1gina \u00B7 Privacidad';
+    pluralName: 'paginas-privacidad';
+    singularName: 'pagina-privacidad';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    antetitulo: Schema.Attribute.String;
+    contenido: Schema.Attribute.RichText;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fondo: Schema.Attribute.Component<'comun.fondo', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-privacidad.pagina-privacidad'
+    > &
+      Schema.Attribute.Private;
+    menu: Schema.Attribute.Component<'comun.boton', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    titulo: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaProyectosPaginaProyectos
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_proyectos';
+  info: {
+    description: 'Portada, franja de fotos, clip y cierre (/proyectos). Las obras se editan en la colecci\u00F3n Proyecto';
+    displayName: 'P\u00E1gina \u00B7 Proyectos';
+    pluralName: 'paginas-proyectos';
+    singularName: 'pagina-proyectos';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cierre: Schema.Attribute.Component<'comun.seccion', false>;
+    clip: Schema.Attribute.Component<'proyectos.clip', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    galeria: Schema.Attribute.Component<'comun.seccion', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-proyectos.pagina-proyectos'
+    > &
+      Schema.Attribute.Private;
+    obras: Schema.Attribute.Component<'comun.seccion', false>;
+    portada: Schema.Attribute.Component<'comun.hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaPuertaPaginaPuerta extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_puertas';
+  info: {
+    description: 'Portada del sitio (/): elegir entre empresas y empleo';
+    displayName: 'P\u00E1gina \u00B7 Puerta';
+    pluralName: 'pagina-puertas';
+    singularName: 'pagina-puerta';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    antetitulo: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    datos: Schema.Attribute.Component<'comun.dato', true>;
+    fondo: Schema.Attribute.Component<'comun.fondo', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-puerta.pagina-puerta'
+    > &
+      Schema.Attribute.Private;
+    menu: Schema.Attribute.Component<'comun.boton', true>;
+    mostrarClientes: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    opcionEmpleo: Schema.Attribute.Component<'puerta.opcion', false>;
+    opcionEmpresa: Schema.Attribute.Component<'puerta.opcion', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    texto: Schema.Attribute.Text;
+    titulo: Schema.Attribute.String;
+    tituloClientes: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaServiciosPaginaServicios
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_servicios';
+  info: {
+    description: 'Cat\u00E1logo, seguridad, proceso, sectores y marco legal (/servicios). Los servicios se editan en la colecci\u00F3n Servicio';
+    displayName: 'P\u00E1gina \u00B7 Servicios';
+    pluralName: 'paginas-servicios';
+    singularName: 'pagina-servicios';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    catalogo: Schema.Attribute.Component<'comun.seccion', false>;
+    cierre: Schema.Attribute.Component<'comun.seccion', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-servicios.pagina-servicios'
+    > &
+      Schema.Attribute.Private;
+    marcoLegal: Schema.Attribute.Component<'comun.seccion', false>;
+    portada: Schema.Attribute.Component<'comun.hero', false>;
+    proceso: Schema.Attribute.Component<'comun.seccion', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    sectores: Schema.Attribute.Component<'comun.seccion', false>;
+    seguridad: Schema.Attribute.Component<'comun.seccion', false>;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    valor: Schema.Attribute.Component<'comun.seccion', false>;
+  };
+}
+
+export interface ApiPaginaSolicitarPaginaSolicitar
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_solicitars';
+  info: {
+    description: 'Formulario por pasos de /empresas/solicitar: personal, reuni\u00F3n o mensaje';
+    displayName: 'P\u00E1gina \u00B7 Solicitar';
+    pluralName: 'paginas-solicitar';
+    singularName: 'pagina-solicitar';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fondoFormulario: Schema.Attribute.Component<'comun.fondo', false>;
+    listo: Schema.Attribute.Component<'comun.seccion', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-solicitar.pagina-solicitar'
+    > &
+      Schema.Attribute.Private;
+    modalidades: Schema.Attribute.Component<'comun.item', true>;
+    opcionContactar: Schema.Attribute.Component<'comun.item', false>;
+    opcionPersonal: Schema.Attribute.Component<'comun.item', false>;
+    opcionReunion: Schema.Attribute.Component<'comun.item', false>;
+    pasosContactar: Schema.Attribute.Component<'comun.item', true>;
+    pasosPersonal: Schema.Attribute.Component<'comun.item', true>;
+    pasosReunion: Schema.Attribute.Component<'comun.item', true>;
+    portada: Schema.Attribute.Component<'comun.hero', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    textos: Schema.Attribute.Component<'solicitar.textos', false>;
+    tiposPersonal: Schema.Attribute.Component<'comun.item', true>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaVacantePaginaVacante extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_vacantes_ficha';
+  info: {
+    description: 'Textos y fondo de la ficha de cada vacante (/empleos/vacantes/\u2026). El contenido de cada puesto se edita en Vacante';
+    displayName: 'P\u00E1gina \u00B7 Ficha de vacante';
+    pluralName: 'paginas-vacante';
+    singularName: 'pagina-vacante';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fondo: Schema.Attribute.Component<'comun.fondo', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-vacante.pagina-vacante'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    textos: Schema.Attribute.Component<'vacante.textos', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPaginaVacantesPaginaVacantes
+  extends Struct.SingleTypeSchema {
+  collectionName: 'pagina_vacantes';
+  info: {
+    description: 'Listado de vacantes (/empleos/vacantes). En los textos por \u00E1rea, {area} se cambia por el nombre del \u00E1rea';
+    displayName: 'P\u00E1gina \u00B7 Vacantes';
+    pluralName: 'paginas-vacantes';
+    singularName: 'pagina-vacantes';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    antetitulo: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fondo: Schema.Attribute.Component<'comun.fondo', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::pagina-vacantes.pagina-vacantes'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'comun.seo', false>;
+    texto: Schema.Attribute.Text;
+    textoArea: Schema.Attribute.Text;
+    textos: Schema.Attribute.Component<'vacantes.textos', false>;
+    titulo: Schema.Attribute.String;
+    tituloArea: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPostPost extends Struct.CollectionTypeSchema {
   collectionName: 'posts';
   info: {
@@ -613,6 +1239,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
 export interface ApiPostulacionPostulacion extends Struct.CollectionTypeSchema {
   collectionName: 'postulacions';
   info: {
+    description: 'Postulaciones y CV recibidos desde el sitio. \u00ABorigen\u00BB dice si vino de una vacante, del constructor de CV o de un archivo subido';
     displayName: 'Postulacion';
     pluralName: 'postulacions';
     singularName: 'postulacion';
@@ -621,6 +1248,8 @@ export interface ApiPostulacionPostulacion extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    apellido: Schema.Attribute.String;
+    areaInteres: Schema.Attribute.String;
     cartaPresentacion: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -638,6 +1267,10 @@ export interface ApiPostulacionPostulacion extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     nombre: Schema.Attribute.String & Schema.Attribute.Required;
+    origen: Schema.Attribute.Enumeration<
+      ['vacante', 'cv_creado', 'cv_subido']
+    > &
+      Schema.Attribute.DefaultTo<'vacante'>;
     publishedAt: Schema.Attribute.DateTime;
     telefono: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
@@ -650,6 +1283,7 @@ export interface ApiPostulacionPostulacion extends Struct.CollectionTypeSchema {
 export interface ApiProyectoProyecto extends Struct.CollectionTypeSchema {
   collectionName: 'proyectos';
   info: {
+    description: 'Obras de /proyectos. Se muestran las activas, por orden; la primera va en grande';
     displayName: 'Proyecto';
     pluralName: 'proyectos';
     singularName: 'proyecto';
@@ -658,26 +1292,27 @@ export interface ApiProyectoProyecto extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    activo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    descripcion: Schema.Attribute.RichText;
+    descripcion: Schema.Attribute.Text;
     division: Schema.Attribute.Relation<'manyToOne', 'api::division.division'>;
     estado: Schema.Attribute.Enumeration<
       ['en_proceso', 'completado', 'destacado']
     >;
     fecha: Schema.Attribute.Date;
-    imagenes: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    imagenes: Schema.Attribute.Media<'images', true>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::proyecto.proyecto'
     > &
       Schema.Attribute.Private;
+    orden: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
+    rol: Schema.Attribute.String;
+    sector: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'titulo'>;
     titulo: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
@@ -689,6 +1324,7 @@ export interface ApiProyectoProyecto extends Struct.CollectionTypeSchema {
 export interface ApiServicioServicio extends Struct.CollectionTypeSchema {
   collectionName: 'servicios';
   info: {
+    description: 'Servicios del cat\u00E1logo de /servicios. Se muestran los activos, por orden';
     displayName: 'Servicio';
     pluralName: 'servicios';
     singularName: 'servicio';
@@ -701,9 +1337,12 @@ export interface ApiServicioServicio extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    descripcion: Schema.Attribute.RichText;
+    descripcion: Schema.Attribute.Text;
+    detalle: Schema.Attribute.Text;
     division: Schema.Attribute.Relation<'manyToOne', 'api::division.division'>;
+    etiquetas: Schema.Attribute.Component<'comun.elemento', true>;
     icono: Schema.Attribute.String;
+    imagen: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -712,6 +1351,7 @@ export interface ApiServicioServicio extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     orden: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'titulo'>;
     titulo: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -722,6 +1362,7 @@ export interface ApiServicioServicio extends Struct.CollectionTypeSchema {
 export interface ApiVacanteVacante extends Struct.CollectionTypeSchema {
   collectionName: 'vacantes';
   info: {
+    description: 'Puestos del portal de empleo. \u00ABDivisi\u00F3n\u00BB es el \u00E1rea (Construcci\u00F3n, Energ\u00EDa\u2026)';
     displayName: 'Vacante';
     pluralName: 'vacantes';
     singularName: 'vacante';
@@ -739,6 +1380,7 @@ export interface ApiVacanteVacante extends Struct.CollectionTypeSchema {
       Schema.Attribute.DefaultTo<'activa'>;
     fechaCierre: Schema.Attribute.Date;
     fechaPublicacion: Schema.Attribute.Date;
+    imagen: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -1279,9 +1921,26 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::cliente.cliente': ApiClienteCliente;
+      'api::configuracion-sitio.configuracion-sitio': ApiConfiguracionSitioConfiguracionSitio;
       'api::division.division': ApiDivisionDivision;
       'api::hero-slide.hero-slide': ApiHeroSlideHeroSlide;
       'api::mensaje.mensaje': ApiMensajeMensaje;
+      'api::pagina-blog.pagina-blog': ApiPaginaBlogPaginaBlog;
+      'api::pagina-contacto.pagina-contacto': ApiPaginaContactoPaginaContacto;
+      'api::pagina-cultura.pagina-cultura': ApiPaginaCulturaPaginaCultura;
+      'api::pagina-empleos.pagina-empleos': ApiPaginaEmpleosPaginaEmpleos;
+      'api::pagina-empresas.pagina-empresas': ApiPaginaEmpresasPaginaEmpresas;
+      'api::pagina-equipo.pagina-equipo': ApiPaginaEquipoPaginaEquipo;
+      'api::pagina-faq.pagina-faq': ApiPaginaFaqPaginaFaq;
+      'api::pagina-no-encontrada.pagina-no-encontrada': ApiPaginaNoEncontradaPaginaNoEncontrada;
+      'api::pagina-nosotros.pagina-nosotros': ApiPaginaNosotrosPaginaNosotros;
+      'api::pagina-privacidad.pagina-privacidad': ApiPaginaPrivacidadPaginaPrivacidad;
+      'api::pagina-proyectos.pagina-proyectos': ApiPaginaProyectosPaginaProyectos;
+      'api::pagina-puerta.pagina-puerta': ApiPaginaPuertaPaginaPuerta;
+      'api::pagina-servicios.pagina-servicios': ApiPaginaServiciosPaginaServicios;
+      'api::pagina-solicitar.pagina-solicitar': ApiPaginaSolicitarPaginaSolicitar;
+      'api::pagina-vacante.pagina-vacante': ApiPaginaVacantePaginaVacante;
+      'api::pagina-vacantes.pagina-vacantes': ApiPaginaVacantesPaginaVacantes;
       'api::post.post': ApiPostPost;
       'api::postulacion.postulacion': ApiPostulacionPostulacion;
       'api::proyecto.proyecto': ApiProyectoProyecto;

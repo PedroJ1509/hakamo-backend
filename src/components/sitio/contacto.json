@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_sitio_contactos",
+  "info": {
+    "displayName": "Datos de contacto",
+    "icon": "phone",
+    "description": "Se usan en la cabecera, el pie, el botón de WhatsApp y las páginas"
+  },
+  "options": {},
+  "attributes": {
+    "telefono": {
+      "type": "string"
+    },
+    "telefonoAlt": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "emailReclutamiento": {
+      "type": "email"
+    },
+    "direccion": {
+      "type": "string"
+    },
+    "enlaceMapa": {
+      "type": "string"
+    },
+    "latitud": {
+      "type": "decimal"
+    },
+    "longitud": {
+      "type": "decimal"
+    }
+  },
+  "config": {}
+}

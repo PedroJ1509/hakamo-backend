@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_empresas_accesos",
+  "info": {
+    "displayName": "Acceso a otra página",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "antetitulo": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    },
+    "textoEnlace": {
+      "type": "string"
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_no_encontradas",
+  "info": {
+    "singularName": "pagina-no-encontrada",
+    "pluralName": "paginas-no-encontrada",
+    "displayName": "Página · No encontrada (404)",
+    "description": "Página que se ve cuando una ruta no existe. Antetítulo = número grande; cada elemento es una salida (etiqueta, título, texto, subtítulo = texto del enlace, enlace); botón = «O escríbenos»; botón secundario = enlace de arriba"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "contenido": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    }
+  }
+}

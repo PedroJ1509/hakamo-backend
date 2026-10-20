@@ -1,3 +1,22 @@
+# Hakamo — CMS (Strapi 5)
+
+Panel de contenido del sitio de Hakamo. Cada página del sitio es un tipo único «Página · …»; lo común (logo, contacto, menús, pie) está en «Configuración del sitio». Las secciones usan los componentes `comun.*` (Sección, Elemento, Fondo, Botón, SEO, Portada).
+
+## Al arrancar
+
+`src/index.ts` ejecuta dos pasos en cada arranque:
+
+- **Permisos** (`src/bootstrap/permisos.ts`): el rol público puede leer las páginas y colecciones del sitio, y solo puede crear Mensaje y Postulacion (los formularios). Nada más.
+- **Contenido inicial** (`src/bootstrap/sembrar.ts` y `src/bootstrap/contenido/`): si una página o colección está vacía, se crea con el texto que tenía el sitio. Nunca sobrescribe lo que ya se editó en el panel.
+
+Al agregar una página nueva: crea su esquema, reinicia Strapi, y después agrega su semilla en `sembrar.ts` y su permiso en `permisos.ts`.
+
+## Imágenes
+
+Las subidas van a Cloudinary (`config/plugins.ts`). Hace falta `CLOUDINARY_NAME`, `CLOUDINARY_KEY` y `CLOUDINARY_SECRET` en `.env`; sin ellas no se pueden subir archivos.
+
+---
+
 # 🚀 Getting started with Strapi
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.

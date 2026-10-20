@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_vacantes_ficha",
+  "info": {
+    "singularName": "pagina-vacante",
+    "pluralName": "paginas-vacante",
+    "displayName": "Página · Ficha de vacante",
+    "description": "Textos y fondo de la ficha de cada vacante (/empleos/vacantes/…). El contenido de cada puesto se edita en Vacante"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "textos": {
+      "type": "component",
+      "repeatable": false,
+      "component": "vacante.textos"
+    },
+    "fondo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.fondo"
+    }
+  }
+}

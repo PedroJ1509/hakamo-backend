@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_comun_seos",
+  "info": {
+    "displayName": "SEO",
+    "icon": "search",
+    "description": "Título y descripción para buscadores y redes"
+  },
+  "options": {},
+  "attributes": {
+    "metaTitulo": {
+      "type": "string"
+    },
+    "metaDescripcion": {
+      "type": "text"
+    },
+    "imagenCompartir": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  },
+  "config": {}
+}

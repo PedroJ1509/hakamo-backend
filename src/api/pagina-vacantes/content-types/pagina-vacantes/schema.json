@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_vacantes",
+  "info": {
+    "singularName": "pagina-vacantes",
+    "pluralName": "paginas-vacantes",
+    "displayName": "Página · Vacantes",
+    "description": "Listado de vacantes (/empleos/vacantes). En los textos por área, {area} se cambia por el nombre del área"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seo"
+    },
+    "antetitulo": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string"
+    },
+    "tituloArea": {
+      "type": "string"
+    },
+    "texto": {
+      "type": "text"
+    },
+    "textoArea": {
+      "type": "text"
+    },
+    "textos": {
+      "type": "component",
+      "repeatable": false,
+      "component": "vacantes.textos"
+    },
+    "fondo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.fondo"
+    }
+  }
+}

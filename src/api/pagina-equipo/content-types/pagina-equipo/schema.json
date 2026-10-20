@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_equipos",
+  "info": {
+    "singularName": "pagina-equipo",
+    "pluralName": "paginas-equipo",
+    "displayName": "Página · Equipo",
+    "description": "Equipo (/equipo). En cada persona: etiqueta = iniciales, título = nombre, subtítulo = cargo, texto = bio, imagen = foto"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seo"
+    },
+    "portada": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    },
+    "miembros": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    },
+    "cierre": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    }
+  }
+}

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "vacante",
     "pluralName": "vacantes",
-    "displayName": "Vacante"
+    "displayName": "Vacante",
+    "description": "Puestos del portal de empleo. «División» es el área (Construcción, Energía…)"
   },
   "options": {
     "draftAndPublish": true
@@ -60,6 +61,13 @@
     },
     "fechaCierre": {
       "type": "date"
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "division": {
       "type": "relation",

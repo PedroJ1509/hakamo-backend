@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_comun_heroes",
+  "info": {
+    "displayName": "Portada de página",
+    "icon": "landscape",
+    "description": "Primera sección de una página: textos, botones y fondo. Un salto de línea en el título lo parte en dos líneas"
+  },
+  "options": {},
+  "attributes": {
+    "antetitulo": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "text"
+    },
+    "texto": {
+      "type": "text"
+    },
+    "botonPrincipal": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.boton"
+    },
+    "botonSecundario": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.boton"
+    },
+    "fondo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.fondo"
+    }
+  },
+  "config": {}
+}

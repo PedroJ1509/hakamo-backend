@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "pagina_faqs",
+  "info": {
+    "singularName": "pagina-faq",
+    "pluralName": "paginas-faq",
+    "displayName": "Página · Preguntas frecuentes",
+    "description": "Grupos de preguntas y bloque de ayuda (/faq)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seo"
+    },
+    "portada": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.hero"
+    },
+    "grupos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "faq.grupo"
+    },
+    "fondoPreguntas": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.fondo"
+    },
+    "ayuda": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.seccion"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_comun_datos",
+  "info": {
+    "displayName": "Dato",
+    "icon": "chartBubble",
+    "description": "Cifra destacada con su etiqueta"
+  },
+  "options": {},
+  "attributes": {
+    "valor": {
+      "type": "string",
+      "required": true
+    },
+    "etiqueta": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

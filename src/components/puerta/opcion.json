@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_puerta_opcions",
+  "info": {
+    "displayName": "Opción de la puerta",
+    "icon": "arrowRight",
+    "description": "Tarjeta para elegir entre empresas y empleo"
+  },
+  "options": {},
+  "attributes": {
+    "etiqueta": {
+      "type": "string"
+    },
+    "titulo": {
+      "type": "string",
+      "required": true
+    },
+    "texto": {
+      "type": "text"
+    },
+    "boton": {
+      "type": "component",
+      "repeatable": false,
+      "component": "comun.boton"
+    },
+    "colorFondo": {
+      "type": "string",
+      "regex": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$"
+    },
+    "imagenFondo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  },
+  "config": {}
+}
