@@ -4,16 +4,27 @@ Panel de contenido del sitio de Hakamo. Cada página del sitio es un tipo único
 
 ## Al arrancar
 
-`src/index.ts` ejecuta dos pasos en cada arranque:
+`src/index.ts` deja listo el aviso al sitio y ejecuta dos pasos en cada arranque:
 
-- **Permisos** (`src/bootstrap/permisos.ts`): el rol público puede leer las páginas y colecciones del sitio, y solo puede crear Mensaje y Postulacion (los formularios). Nada más.
+- **Permisos** (`src/bootstrap/permisos.ts`): el rol público puede leer las páginas y colecciones del sitio, y solo puede crear Mensaje. Las postulaciones entran por `POST /api/postulaciones/enviar`, que valida el correo y el CV (PDF o Word, hasta 5 MB). Nada más.
 - **Contenido inicial** (`src/bootstrap/sembrar.ts` y `src/bootstrap/contenido/`): si una página o colección está vacía, se crea con el texto que tenía el sitio. Nunca sobrescribe lo que ya se editó en el panel.
 
 Al agregar una página nueva: crea su esquema, reinicia Strapi, y después agrega su semilla en `sembrar.ts` y su permiso en `permisos.ts`.
 
+## Aviso al sitio
+
+`src/bootstrap/avisar-sitio.ts`: al guardar, publicar o borrar contenido, Strapi avisa al sitio (`POST {SITIO_URL}/api/revalidar`) y el cambio se ve en la próxima visita. Necesita en `.env`:
+
+| Variable | Valor |
+|---|---|
+| `SITIO_URL` | URL del sitio, sin barra final. En local: `http://localhost:3000` |
+| `SITIO_REVALIDAR_SECRETO` | Una clave larga al azar. La misma que `REVALIDAR_SECRETO` en el sitio. |
+
+Sin ellas el sitio se actualiza solo, como mucho un minuto después.
+
 ## Imágenes
 
-Las subidas van a Cloudinary (`config/plugins.ts`). Hace falta `CLOUDINARY_NAME`, `CLOUDINARY_KEY` y `CLOUDINARY_SECRET` en `.env`; sin ellas no se pueden subir archivos.
+Si `.env` tiene `CLOUDINARY_NAME`, `CLOUDINARY_KEY` y `CLOUDINARY_SECRET`, las subidas van a Cloudinary (`config/plugins.ts`). Si falta alguna, se guardan en `public/uploads`: sirve para trabajar en local, pero en producción hay que poner las tres, porque muchos hostings borran esa carpeta al desplegar.
 
 ---
 

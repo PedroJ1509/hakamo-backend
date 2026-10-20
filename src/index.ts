@@ -1,9 +1,13 @@
 import type { Core } from '@strapi/strapi';
+import { avisarAlSitio } from './bootstrap/avisar-sitio';
 import { abrirLecturaPublica } from './bootstrap/permisos';
 import { sembrarContenido } from './bootstrap/sembrar';
 
 export default {
-  register(/* { strapi }: { strapi: Core.Strapi } */) {},
+  /** Al guardar o publicar contenido, el sitio se entera y lo muestra en la próxima visita. */
+  register({ strapi }: { strapi: Core.Strapi }) {
+    avisarAlSitio(strapi);
+  },
 
   /**
    * Al arrancar: el rol público puede leer las páginas y, si una página
