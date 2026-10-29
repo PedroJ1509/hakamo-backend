@@ -22,6 +22,15 @@ Al agregar una página nueva: crea su esquema, reinicia Strapi, y después agreg
 
 Sin ellas el sitio se actualiza solo, como mucho un minuto después.
 
+## En el servidor
+
+Strapi va detrás de Nginx con HTTPS. En el `.env` del servidor:
+
+| Variable | Valor |
+|---|---|
+| `PUBLIC_URL` | `https://cms.hakamo.com.do` |
+| `IS_PROXIED` | `true` |
+
 ## Imágenes
 
 Si `.env` tiene `CLOUDINARY_NAME`, `CLOUDINARY_KEY` y `CLOUDINARY_SECRET`, las subidas van a Cloudinary (`config/plugins.ts`). Si falta alguna, se guardan en `public/uploads`: sirve para trabajar en local, pero en producción hay que poner las tres, porque muchos hostings borran esa carpeta al desplegar.
