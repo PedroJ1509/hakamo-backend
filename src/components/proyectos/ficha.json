@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_proyectos_fichas",
+  "info": {
+    "displayName": "Textos de la ficha",
+    "icon": "pencil",
+    "description": "Textos fijos de la página de cada proyecto (/proyectos/nombre-del-proyecto)"
+  },
+  "options": {},
+  "attributes": {
+    "textoVolver": { "type": "string" },
+    "textoVerProyecto": { "type": "string" },
+    "tituloFicha": { "type": "string" },
+    "tituloAlcance": { "type": "string" },
+    "tituloGaleria": { "type": "string" },
+    "tituloOtros": { "type": "string" }
+  },
+  "config": {}
+}

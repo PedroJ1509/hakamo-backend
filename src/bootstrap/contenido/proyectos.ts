@@ -21,6 +21,14 @@ export const PROYECTOS_PAGINA_INICIAL = {
     ],
   },
   obras: {},
+  ficha: {
+    textoVolver: 'Todos los proyectos',
+    textoVerProyecto: 'Ver proyecto',
+    tituloFicha: 'Ficha del proyecto',
+    tituloAlcance: 'Qué hicimos',
+    tituloGaleria: 'En imágenes',
+    tituloOtros: 'Otros proyectos',
+  },
   clip: {
     antetitulo: 'En campo',
     titulo: 'La obra, de cerca',

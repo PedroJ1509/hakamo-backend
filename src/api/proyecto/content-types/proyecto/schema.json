@@ -5,7 +5,7 @@
     "singularName": "proyecto",
     "pluralName": "proyectos",
     "displayName": "Proyecto",
-    "description": "Obras de /proyectos. Se muestran las activas, por orden; la primera va en grande"
+    "description": "Obras de /proyectos. Se muestran las activas, por orden; la primera va en grande. Cada una tiene su página en /proyectos/slug"
   },
   "options": {
     "draftAndPublish": true
@@ -26,8 +26,27 @@
     "rol": {
       "type": "string"
     },
+    "cliente": {
+      "type": "string"
+    },
+    "ubicacion": {
+      "type": "string"
+    },
     "descripcion": {
       "type": "text"
+    },
+    "contenido": {
+      "type": "richtext"
+    },
+    "datos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.dato"
+    },
+    "alcance": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.elemento"
     },
     "imagenes": {
       "type": "media",

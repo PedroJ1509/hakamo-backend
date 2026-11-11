@@ -984,7 +984,7 @@ export interface ApiPaginaProyectosPaginaProyectos
   extends Struct.SingleTypeSchema {
   collectionName: 'pagina_proyectos';
   info: {
-    description: 'Portada, franja de fotos, clip y cierre (/proyectos). Las obras se editan en la colecci\u00F3n Proyecto';
+    description: 'Portada, franja de fotos, clip y cierre (/proyectos), y los textos de la p\u00E1gina de cada proyecto. Las obras se editan en la colecci\u00F3n Proyecto';
     displayName: 'P\u00E1gina \u00B7 Proyectos';
     pluralName: 'paginas-proyectos';
     singularName: 'pagina-proyectos';
@@ -998,6 +998,7 @@ export interface ApiPaginaProyectosPaginaProyectos
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    ficha: Schema.Attribute.Component<'proyectos.ficha', false>;
     galeria: Schema.Attribute.Component<'comun.seccion', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -1283,7 +1284,7 @@ export interface ApiPostulacionPostulacion extends Struct.CollectionTypeSchema {
 export interface ApiProyectoProyecto extends Struct.CollectionTypeSchema {
   collectionName: 'proyectos';
   info: {
-    description: 'Obras de /proyectos. Se muestran las activas, por orden; la primera va en grande';
+    description: 'Obras de /proyectos. Se muestran las activas, por orden; la primera va en grande. Cada una tiene su p\u00E1gina en /proyectos/slug';
     displayName: 'Proyecto';
     pluralName: 'proyectos';
     singularName: 'proyecto';
@@ -1293,9 +1294,13 @@ export interface ApiProyectoProyecto extends Struct.CollectionTypeSchema {
   };
   attributes: {
     activo: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    alcance: Schema.Attribute.Component<'comun.elemento', true>;
+    cliente: Schema.Attribute.String;
+    contenido: Schema.Attribute.RichText;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    datos: Schema.Attribute.Component<'comun.dato', true>;
     descripcion: Schema.Attribute.Text;
     division: Schema.Attribute.Relation<'manyToOne', 'api::division.division'>;
     estado: Schema.Attribute.Enumeration<
@@ -1315,6 +1320,7 @@ export interface ApiProyectoProyecto extends Struct.CollectionTypeSchema {
     sector: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'titulo'>;
     titulo: Schema.Attribute.String & Schema.Attribute.Required;
+    ubicacion: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

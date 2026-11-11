@@ -215,6 +215,23 @@ export interface ProyectosClip extends Struct.ComponentSchema {
   };
 }
 
+export interface ProyectosFicha extends Struct.ComponentSchema {
+  collectionName: 'components_proyectos_fichas';
+  info: {
+    description: 'Textos fijos de la p\u00E1gina de cada proyecto (/proyectos/nombre-del-proyecto)';
+    displayName: 'Textos de la ficha';
+    icon: 'pencil';
+  };
+  attributes: {
+    textoVerProyecto: Schema.Attribute.String;
+    textoVolver: Schema.Attribute.String;
+    tituloAlcance: Schema.Attribute.String;
+    tituloFicha: Schema.Attribute.String;
+    tituloGaleria: Schema.Attribute.String;
+    tituloOtros: Schema.Attribute.String;
+  };
+}
+
 export interface PuertaOpcion extends Struct.ComponentSchema {
   collectionName: 'components_puerta_opcions';
   info: {
@@ -418,6 +435,7 @@ declare module '@strapi/strapi' {
       'faq.grupo': FaqGrupo;
       'faq.pregunta': FaqPregunta;
       'proyectos.clip': ProyectosClip;
+      'proyectos.ficha': ProyectosFicha;
       'puerta.opcion': PuertaOpcion;
       'shared.valor': SharedValor;
       'sitio.contacto': SitioContacto;

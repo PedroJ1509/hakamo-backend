@@ -5,7 +5,7 @@
     "singularName": "pagina-proyectos",
     "pluralName": "paginas-proyectos",
     "displayName": "Página · Proyectos",
-    "description": "Portada, franja de fotos, clip y cierre (/proyectos). Las obras se editan en la colección Proyecto"
+    "description": "Portada, franja de fotos, clip y cierre (/proyectos), y los textos de la página de cada proyecto. Las obras se editan en la colección Proyecto"
   },
   "options": {
     "draftAndPublish": true
@@ -41,6 +41,11 @@
       "type": "component",
       "repeatable": false,
       "component": "comun.seccion"
+    },
+    "ficha": {
+      "type": "component",
+      "repeatable": false,
+      "component": "proyectos.ficha"
     }
   }
 }
