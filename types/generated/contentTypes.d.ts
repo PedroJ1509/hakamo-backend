@@ -501,6 +501,7 @@ export interface ApiConfiguracionSitioConfiguracionSitio
     publishedAt: Schema.Attribute.DateTime;
     redes: Schema.Attribute.Component<'comun.red', true>;
     seo: Schema.Attribute.Component<'comun.seo', false>;
+    submenus: Schema.Attribute.Component<'comun.submenu', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

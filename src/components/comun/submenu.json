@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_comun_submenus",
+  "info": {
+    "displayName": "Submenú",
+    "description": "Los enlaces que se despliegan bajo una entrada del menú principal.",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "padre": {
+      "type": "string",
+      "required": true
+    },
+    "enlaces": {
+      "type": "component",
+      "repeatable": true,
+      "component": "comun.boton"
+    }
+  },
+  "config": {}
+}

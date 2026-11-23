@@ -157,6 +157,19 @@ export interface ComunSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface ComunSubmenu extends Struct.ComponentSchema {
+  collectionName: 'components_comun_submenus';
+  info: {
+    description: 'Los enlaces que se despliegan bajo una entrada del men\u00FA principal.';
+    displayName: 'Submen\u00FA';
+    icon: 'bulletList';
+  };
+  attributes: {
+    enlaces: Schema.Attribute.Component<'comun.boton', true>;
+    padre: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface EmpresasAcceso extends Struct.ComponentSchema {
   collectionName: 'components_empresas_accesos';
   info: {
@@ -431,6 +444,7 @@ declare module '@strapi/strapi' {
       'comun.red': ComunRed;
       'comun.seccion': ComunSeccion;
       'comun.seo': ComunSeo;
+      'comun.submenu': ComunSubmenu;
       'empresas.acceso': EmpresasAcceso;
       'faq.grupo': FaqGrupo;
       'faq.pregunta': FaqPregunta;

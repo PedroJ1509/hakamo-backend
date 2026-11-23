@@ -1,3 +1,4 @@
+import { SUBMENUS_INICIALES } from './submenus';
 /** Configuración inicial del sitio. Son los datos que el sitio tenía antes del CMS. */
 export const SITIO_INICIAL = {
   nombre: 'Hakamo',
@@ -33,6 +34,7 @@ export const SITIO_INICIAL = {
     { texto: 'Cultura', url: '/empleo' },
   ],
   botonCabeceraEmpleos: { texto: 'Empresas', url: '/empresas' },
+  submenus: SUBMENUS_INICIALES,
   pie: {
     texto: 'Personal, nómina y cumplimiento para obras y plantas.',
     botonEmpresas: { texto: 'Solicitar personal', url: '/empresas/solicitar' },
