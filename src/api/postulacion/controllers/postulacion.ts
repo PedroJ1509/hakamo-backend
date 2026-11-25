@@ -3,13 +3,9 @@
  */
 
 import { factories } from '@strapi/strapi';
+import { motivoDeRechazoCv, type ArchivoRecibido } from '../../../utils/archivo-cv';
 
-/** Archivos de CV aceptados y tamaño máximo. */
-const TIPOS_CV = new Set([
-  'application/pdf',
-  'application/msword',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-]);
+/** Tamaño máximo del CV. El formato se valida en `motivoDeRechazoCv` (extensión, tipo y contenido). */
 const MAXIMO_CV = 5 * 1024 * 1024;
 
 const ORIGENES = new Set(['vacante', 'cv_creado', 'cv_subido']);
@@ -20,8 +16,6 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 function campo(valor: unknown, maximo = 200): string {
   return typeof valor === 'string' ? valor.trim().slice(0, maximo) : '';
 }
-
-type ArchivoSubido = { size: number; mimetype?: string; type?: string };
 
 export default factories.createCoreController('api::postulacion.postulacion', ({ strapi }) => ({
   /**
@@ -44,12 +38,13 @@ export default factories.createCoreController('api::postulacion.postulacion', ({
 
     const origen = ORIGENES.has(campo(data.origen)) ? campo(data.origen) : 'vacante';
 
-    let archivo = ctx.request.files?.cv as ArchivoSubido | ArchivoSubido[] | undefined;
+    let archivo = ctx.request.files?.cv as ArchivoRecibido | ArchivoRecibido[] | undefined;
     if (Array.isArray(archivo)) archivo = archivo[0];
     if (archivo) {
-      const tipo = archivo.mimetype ?? archivo.type ?? '';
-      if (!TIPOS_CV.has(tipo)) return ctx.badRequest('El CV debe ser PDF o Word');
       if (archivo.size > MAXIMO_CV) return ctx.badRequest('El CV no puede pasar de 5 MB');
+      // El tipo y el nombre los declara el cliente: se comprueba también el contenido real.
+      const motivo = await motivoDeRechazoCv(archivo);
+      if (motivo) return ctx.badRequest(motivo);
     }
 
     // La vacante es opcional; solo se enlaza si existe y está publicada.

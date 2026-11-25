@@ -43,8 +43,26 @@ const LECTURA_PUBLICA = [
  */
 const ESCRITURA_PUBLICA = ['api::mensaje.mensaje.create'];
 
-/** Permisos que el público ya no debe tener (se quitan si alguna vez se dieron). */
-const RETIRADOS = ['api::postulacion.postulacion.create'];
+/**
+ * Permisos que el público ya no debe tener (se quitan si alguna vez se dieron).
+ *
+ * El sitio no tiene inicio de sesión de usuarios: el panel de administración usa su propia
+ * autenticación. Los accesos de `users-permissions` que Strapi concede por defecto
+ * (registrarse, iniciar sesión, recuperar contraseña…) solo servían para que cualquiera
+ * creara cuentas en el CMS. Strapi los crea únicamente en una base sin permisos, así que
+ * quitarlos aquí es permanente.
+ */
+const RETIRADOS = [
+  'api::postulacion.postulacion.create',
+  'plugin::users-permissions.auth.register',
+  'plugin::users-permissions.auth.callback',
+  'plugin::users-permissions.auth.connect',
+  'plugin::users-permissions.auth.forgotPassword',
+  'plugin::users-permissions.auth.resetPassword',
+  'plugin::users-permissions.auth.emailConfirmation',
+  'plugin::users-permissions.auth.sendEmailConfirmation',
+  'plugin::users-permissions.auth.refresh',
+];
 
 export async function abrirLecturaPublica(strapi: Core.Strapi) {
   const rol = await strapi.db
@@ -55,6 +73,11 @@ export async function abrirLecturaPublica(strapi: Core.Strapi) {
   await strapi.db
     .query('plugin::users-permissions.permission')
     .deleteMany({ where: { action: { $in: RETIRADOS }, role: rol.id } });
+
+  // Además, se apaga la opción "permitir registros" de users-permissions (segunda barrera).
+  const ajustes = strapi.store({ type: 'plugin', name: 'users-permissions', key: 'advanced' });
+  const actuales = (await ajustes.get({})) as Record<string, unknown> | null;
+  if (actuales?.allow_register) await ajustes.set({ value: { ...actuales, allow_register: false } });
 
   for (const action of [...LECTURA_PUBLICA, ...ESCRITURA_PUBLICA]) {
     const existe = await strapi.db
